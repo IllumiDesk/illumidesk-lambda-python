@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Lambda function to execute arbitrary Python code
+
+Resources:
+  ExecuteCodeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: ExecuteCodeFunction
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Timeout: 10
+      MemorySize: 128
+      Events:
+        ExecuteCodeApi:
+          Type: Api
+          Properties:
+            Path: /execute-code
+            Method: POST
