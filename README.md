@@ -43,9 +43,11 @@ docker push 860100747351.dkr.ecr.us-east-1.amazonaws.com/python:3.9
 
 ### (Optional) Test the Lambda Function with Boto3
 
-From the root directory, run the following command to test the Lambda function with Boto3. Ensure that the `ARN` value in the `test_lambda_with_arn.py` file is updated with the ARN of the Lambda function you want to test:
+From the root directory, run the following command to test the Lambda function with Boto3. Ensure that the `ARN` value is exported with the `LAMBDA_FUNCTION_ARN` environment variable before executing the test:
 
 ```bash
+# example for development environment lambda function
+export LAMBDA_FUNCTION_ARN=arn:aws:lambda:us-east-1:860100747351:function:app-dev-docker-lambda_handler
 python test_lambda_with_arn.py
 ```
 

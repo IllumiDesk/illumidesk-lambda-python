@@ -1,5 +1,6 @@
 import boto3
 import json
+import os
 
 def run_python_code(code):
     """
@@ -22,7 +23,7 @@ def run_python_code(code):
     # Invoke the Lambda function with the payload
     response = lambda_client.invoke(
         # Specify the Lambda function ARN (Amazon Resource Name)
-        FunctionName='arn:aws:lambda:us-east-1:860100747351:function:app-dev-docker-lambda_handler',
+        FunctionName=os.getenv('LAMBDA_FUNCTION_ARN'),
         # Set the invocation type to synchronous 'RequestResponse'
         InvocationType='RequestResponse',
         # Convert the payload to a JSON-formatted string
