@@ -1,0 +1,4 @@
+---
+exclude:
+  - aws-lambda-enable-tracing
+  - aws-ecr-repository-customer-key
