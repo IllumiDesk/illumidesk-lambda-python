@@ -1,8 +1,10 @@
-import boto3
 import json
 import os
 
-def run_python_code(code):
+import boto3
+
+
+def run_python_code(code: str) -> str:
     """
     Runs Python code on AWS Lambda.
 
@@ -14,12 +16,12 @@ def run_python_code(code):
     """
     # Initialize the AWS Lambda client
     lambda_client = boto3.client('lambda')
-    
+
     # Set up the payload with the python code to be executed on Lambda
     payload = {
         'code': code
     }
-    
+
     # Invoke the Lambda function with the payload
     response = lambda_client.invoke(
         # Specify the Lambda function ARN (Amazon Resource Name)
@@ -29,15 +31,15 @@ def run_python_code(code):
         # Convert the payload to a JSON-formatted string
         Payload=json.dumps(payload)
     )
-    
+
     # Parse the Lambda response payload and read the result
     result = json.loads(response['Payload'].read())
-    
+
     # Return the result from the Lambda function
     return result
 
 
 if __name__ == '__main__':
-    code = 'a = 2 + 3; b = a * 4'
-    result = run_python_code(code)
-    print(result)
+    TEST_CODE = 'a = 2 + 3; b = a * 4'
+    test_result = run_python_code(TEST_CODE)
+    print(test_result)
