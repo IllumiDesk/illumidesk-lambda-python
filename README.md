@@ -17,10 +17,10 @@ This setup the Terraform CLI to manage the IllumiDesk stack using Terraform Work
 
 Ensure you have the following installed on your local machine:
 
-    - [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
-    - [docker](https://docs.docker.com/get-docker/).
-    - [sam cli](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html).
-    - [terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+- [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+- [docker](https://docs.docker.com/get-docker/).
+- [sam cli](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html).
+- [terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
 You must have an AWS account and provide your AWS Access Key ID and AWS Secret Access Key.
 
