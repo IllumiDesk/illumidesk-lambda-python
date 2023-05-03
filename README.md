@@ -7,11 +7,13 @@ This is an opinionated setup that uses Terraform to manage an AWS Lambda functio
 
 This is a Terraform configuration that manages the an AWS EKS stack. It will create the following resources:
 
-- AWS Lambda Function
-- AWS ECR Repository
-- Docker Image Build and Push to AWS ECR repository
+- **AWS Lambda Function**: Lambda function using a Docker image to run code
+- **AWS S3 Bucket**: Used to store the attachments for the Lambda Function
+- **AWS Policy**: Allows the Lambda Function to access the S3 Bucket
+- **AWS ECR Repository**: Used to store the Docker image for the Lambda Function
+- **Docker Image Build** and **Push to AWS ECR repository**
 
-This setup the Terraform CLI to manage the IllumiDesk stack using Terraform Workspaces.
+This setup the **Terraform CLI** to manage the IllumiDesk stack using **Terraform Workspaces**.
 
 ## Requirements
 
@@ -46,10 +48,22 @@ Initialize the Terraform configuration.
 terraform init
 ```
 
-Plan the Terraform configuration.
+Plan the Terraform configuration (replace `<environment>` with the name of your environment):
+
+```bash
+terraform plan -var-file=<environment>.tfvars
+```
+
+For the development environment:
 
 ```bash
 terraform plan -var-file=dev.tfvars
+```
+
+For the production environment:
+
+```bash
+terraform plan -var-file=prod.tfvars
 ```
 
 Apply the Terraform configuration.
